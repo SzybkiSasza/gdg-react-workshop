@@ -1,3 +1,8 @@
-.NavButton {
+button.NavButton {
   display: flex;
+  margin: 0 5px;
+}
+
+.NavButton__icon {
+  margin-left: 5px;
 }

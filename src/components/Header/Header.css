@@ -3,7 +3,12 @@
   justify-content: center;
 }
 
+.Header__buttons {
+  display: flex;
+  flex-direction: row;
+}
+
 .Header__title,
 .Header__spacer {
-  flex-grow: 1;
+  flex: 1;
 }

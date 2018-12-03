@@ -18,10 +18,10 @@ export default class Header extends React.Component {
           </Typography>
 
           <nav className='Header__buttons'>
-            <NavButton to={'/'}>
+            <NavButton icon='home' to={'/'}>
               Home
             </NavButton>
-            <NavButton to={'/browser'}>
+            <NavButton icon='photo_library' to={'/browser'}>
               Image Browser
             </NavButton>
           </nav>
