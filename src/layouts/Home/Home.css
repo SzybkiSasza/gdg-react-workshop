@@ -1,1 +1,3 @@
-.Browser {}
+.Browser {
+  display: flex;
+}

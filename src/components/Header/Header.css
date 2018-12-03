@@ -1,0 +1,9 @@
+.Header {
+  display: flex;
+  justify-content: center;
+}
+
+.Header__title,
+.Header__spacer {
+  flex-grow: 1;
+}
