@@ -4,12 +4,21 @@ import Typography from '@material-ui/core/Typography';
 import * as React from 'react';
 import { Link } from 'react-router';
 
-export default class Header extends React.Component {
+// Type we'll use for passing arbitrary classes to our Header
+type HeaderProps = {
+  classes?: { [key: string]: string };
+}
+
+// We pass proper information about interface in "extends" to allow for strongly-typed props
+export default class Header extends React.Component<HeaderProps> {
   public render(): JSX.Element {
+    // Get optional classes to enrich the element
+    const { classes = {} } = this.props;
+
     return (
-      <AppBar position='static'>
+      <AppBar className={ classes.appBar } position='static'>
         <Toolbar>
-          <Typography variant='h6' color='inherit'>
+          <Typography variant='h5' color='inherit'>
             GDG React Workshop
           </Typography>
           <Link to='/'>Home</Link>

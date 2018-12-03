@@ -5,10 +5,9 @@
   "dependencies": {
     "@material-ui/core": "^3.6.1",
     "@material-ui/icons": "^3.0.1",
-    "history": "^4.7.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-    "react-router": "^3.2.1",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1"
   },
   "scripts": {
@@ -20,12 +19,11 @@
     "lint:fix": "tslint --fix ./src/**/*.ts{,x} && stylelint --fix ./src"
   },
   "devDependencies": {
-    "@types/history": "^4.7.2",
     "@types/jest": "^23.3.10",
     "@types/node": "^10.12.11",
     "@types/react": "^16.7.11",
     "@types/react-dom": "^16.0.11",
-    "@types/react-router": "^3.0.8",
+    "@types/react-router-dom": "^4.3.1",
     "stylelint": "^9.9.0",
     "stylelint-config-standard": "^18.2.0",
     "tslint-config-prettier": "^1.17.0",

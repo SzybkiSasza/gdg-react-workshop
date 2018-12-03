@@ -8,6 +8,7 @@
     ]
   },
   "rules": {
+    "interface-over-type-literal": false,
     "quotemark" : [true, "single", "avoid-escape", "avoid-template"]
   }
 }
