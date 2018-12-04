@@ -1,11 +1,9 @@
 import * as React from 'react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 
-import blue from '@material-ui/core/colors/blue';
-import deepOrange from '@material-ui/core/colors/deepOrange';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { createMuiTheme } from '@material-ui/core/styles';
-import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import { createMuiTheme, CssBaseline, Paper } from '@material-ui/core';
+import { blue, deepOrange } from '@material-ui/core/colors';
+import { MuiThemeProvider } from '@material-ui/core/styles';
 
 import Header from '../components/Header/Header';
 import Browser from './Browser/Browser';
@@ -19,6 +17,9 @@ const gdgTheme = createMuiTheme({
     primary: blue,
     secondary: deepOrange,
   },
+  typography: {
+    useNextVariants: true,
+  },
 });
 
 class App extends React.Component {
@@ -27,14 +28,18 @@ class App extends React.Component {
       <HashRouter>
         <MuiThemeProvider theme={gdgTheme}>
           <CssBaseline/>
-          <Header/>
-          <section>
-            <Switch>
-              <Route path='/' exact={true} component={Home}/>
-              <Route path='/browser' component={Browser}/>
-              <Route component={NotFound}/>
-            </Switch>
-          </section>
+          <div className='App'>
+            <Header className='App__header'/>
+            <section className='App__section'>
+              <Paper className='App__paper'>
+                <Switch>
+                  <Route path='/' exact={true} component={Home}/>
+                  <Route path='/browser' component={Browser}/>
+                  <Route component={NotFound}/>
+                </Switch>
+              </Paper>
+            </section>
+          </div>
         </MuiThemeProvider>
       </HashRouter>
     );

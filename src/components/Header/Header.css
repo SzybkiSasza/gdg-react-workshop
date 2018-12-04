@@ -1,7 +1,9 @@
-.Header {
+div.Header {
+  align-items: flex-start;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .Header__tabs {
@@ -11,7 +13,11 @@
   width: 100%;
 }
 
-.Header__title,
-.Header__spacer {
+.Header .Header__title {
   flex: 1;
+  margin: 15px 10px 0 30px;
+}
+
+.Header__tabs-wrapper {
+  width: 100%;
 }

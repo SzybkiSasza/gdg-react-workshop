@@ -9,12 +9,14 @@ interface LinkTabProps extends RouteComponentProps, TabProps {}
 
 class LinkTab extends React.Component<LinkTabProps> {
   public render() {
+    const { staticContext, ...props } = this.props;
+
     return (
       <Tab
         className='NavTab'
         color='secondary'
         onClick={this.navigate}
-        {...this.props}/>
+        {...props}/>
     )
   }
 

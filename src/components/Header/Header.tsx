@@ -1,18 +1,17 @@
 import * as React from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import HomeIcon from '@material-ui/icons/Home';
-import PhotoLibIcon from '@material-ui/icons/PhotoLibrary';
+import { AppBar, Tabs, Toolbar, Typography } from '@material-ui/core';
+import { Home, PhotoLibrary } from '@material-ui/icons';
 
 import LinkTab from '../LinkTab/LinkTab';
 
 import './Header.css';
+import { ComponentProps } from 'react';
 
-class Header extends React.Component<RouteComponentProps> {
+interface HeaderProps extends RouteComponentProps, ComponentProps<any> {}
+
+class Header extends React.Component<HeaderProps> {
   public render(): JSX.Element {
     return (
       <AppBar position='static'>
@@ -22,13 +21,13 @@ class Header extends React.Component<RouteComponentProps> {
           </Typography>
 
           <nav className='Header__tabs'>
-            <Tabs value={this.props.history.location.pathname}>
-              <LinkTab icon={ <HomeIcon/> } label='Home' value='/'/>
-              <LinkTab icon={ <PhotoLibIcon/> } label='Image browser' value='/browser'/>
+            <Tabs className='Header__tabs-wrapper'
+                  fullWidth={true}
+                  value={this.props.history.location.pathname}>
+              <LinkTab icon={<Home/>} value='/'/>
+              <LinkTab icon={<PhotoLibrary/>} value='/browser'/>
             </Tabs>
           </nav>
-
-          <div className='Header__spacer'/>
         </Toolbar>
       </AppBar>
     )
