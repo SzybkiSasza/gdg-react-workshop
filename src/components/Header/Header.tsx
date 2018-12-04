@@ -6,8 +6,8 @@ import { Home, PhotoLibrary } from '@material-ui/icons';
 
 import LinkTab from '../LinkTab/LinkTab';
 
-import './Header.css';
 import { ComponentProps } from 'react';
+import './Header.css';
 
 interface HeaderProps extends RouteComponentProps, ComponentProps<any> {}
 

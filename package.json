@@ -5,6 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^3.6.1",
     "@material-ui/icons": "^3.0.1",
+    "classnames": "^2.2.6",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-router-dom": "^4.3.1",
@@ -19,6 +20,7 @@
     "lint:fix": "tslint 'src/**/*.ts{,x}' --fix && stylelint './src/**/*.css' --fix"
   },
   "devDependencies": {
+    "@types/classnames": "^2.2.6",
     "@types/jest": "^23.3.10",
     "@types/node": "^10.12.11",
     "@types/react": "^16.7.11",

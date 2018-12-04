@@ -10,10 +10,21 @@
 
 .App__paper {
   flex-grow: 1;
+  overflow: auto;
+  max-height: 100%;
+  padding: 50px;
+}
+
+.App__paper--small {
+  padding: 25px;
 }
 
 .App__section {
   display: flex;
   flex-grow: 1;
   padding: 50px;
+}
+
+.App__section--small {
+  padding: 25px;
 }
