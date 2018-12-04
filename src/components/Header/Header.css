@@ -1,11 +1,14 @@
 .Header {
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
-.Header__buttons {
+.Header__tabs {
+  align-items: center;
   display: flex;
   flex-direction: row;
+  width: 100%;
 }
 
 .Header__title,

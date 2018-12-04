@@ -1,8 +1,8 @@
-button.NavButton {
+button.LinkTab {
   display: flex;
   margin: 0 5px;
 }
 
-.NavButton__icon {
+.LinkTab__icon {
   margin-left: 5px;
 }

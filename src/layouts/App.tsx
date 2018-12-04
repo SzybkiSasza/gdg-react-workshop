@@ -10,9 +10,9 @@ import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import Header from '../components/Header/Header';
 import Browser from './Browser/Browser';
 import Home from './Home/Home';
+import NotFound from './NotFound/NotFound';
 
 import './App.css';
-import NotFound from './NotFound/NotFound';
 
 const gdgTheme = createMuiTheme({
   palette: {

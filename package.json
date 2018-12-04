@@ -15,8 +15,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "tslint 'src/**/*.ts{,x}' && stylelint --fix ./src",
-    "lint:fix": "tslint 'src/**/*.ts{,x}' --fix && stylelint ./src --fix"
+    "lint": "tslint 'src/**/*.ts{,x}' && stylelint './src/**/*.css'",
+    "lint:fix": "tslint 'src/**/*.ts{,x}' --fix && stylelint './src/**/*.css' --fix"
   },
   "devDependencies": {
     "@types/jest": "^23.3.10",

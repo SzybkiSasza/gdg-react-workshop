@@ -1,14 +1,18 @@
+import * as React from 'react';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
+
 import AppBar from '@material-ui/core/AppBar';
+import Tabs from '@material-ui/core/Tabs';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import * as React from 'react';
+import HomeIcon from '@material-ui/icons/Home';
+import PhotoLibIcon from '@material-ui/icons/PhotoLibrary';
 
-import { NavButton } from '../NavButton/NavButton';
+import LinkTab from '../LinkTab/LinkTab';
 
 import './Header.css';
 
-// We pass proper information about interface in "extends" to allow for strongly-typed props
-export default class Header extends React.Component {
+class Header extends React.Component<RouteComponentProps> {
   public render(): JSX.Element {
     return (
       <AppBar position='static'>
@@ -17,13 +21,11 @@ export default class Header extends React.Component {
             GDG React Workshop
           </Typography>
 
-          <nav className='Header__buttons'>
-            <NavButton icon='home' to={'/'}>
-              Home
-            </NavButton>
-            <NavButton icon='photo_library' to={'/browser'}>
-              Image Browser
-            </NavButton>
+          <nav className='Header__tabs'>
+            <Tabs value={this.props.history.location.pathname}>
+              <LinkTab icon={ <HomeIcon/> } label='Home' value='/'/>
+              <LinkTab icon={ <PhotoLibIcon/> } label='Image browser' value='/browser'/>
+            </Tabs>
           </nav>
 
           <div className='Header__spacer'/>
@@ -32,3 +34,5 @@ export default class Header extends React.Component {
     )
   }
 }
+
+export default withRouter(Header);
