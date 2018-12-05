@@ -27,7 +27,7 @@ class Home extends React.Component<RouteComponentProps> {
               <li>Showcase good practices when bootstrapping React apps</li>
               <li>Show Typescript and React working seamlessly</li>
               <li>Incorporate React into Electron environment</li>
-              <li>Create desktop app feeling and leverage system APIs</li>
+              <li>Create desktop app look and feel and leverage system APIs</li>
             </ul>
           </Typography>
           <Typography className='Home__section' paragraph={true} variant='body1'>

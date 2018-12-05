@@ -17,7 +17,7 @@ class Header extends React.Component<HeaderProps> {
       <AppBar position='static'>
         <Toolbar className='Header'>
           <Typography className='Header__title' variant='h5' color='inherit'>
-            GDG React Workshop
+            React Workshop
           </Typography>
 
           <nav className='Header__tabs'>

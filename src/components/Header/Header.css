@@ -15,7 +15,7 @@ div.Header {
 
 .Header .Header__title {
   flex: 1;
-  margin: 15px 10px 0 30px;
+  margin: 15px 10px 5px 20px;
 }
 
 .Header__tabs-wrapper {
