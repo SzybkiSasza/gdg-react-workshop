@@ -9,6 +9,7 @@
 }
 
 .App__paper {
+  display: flex;
   flex-grow: 1;
   overflow: auto;
   max-height: 100%;
