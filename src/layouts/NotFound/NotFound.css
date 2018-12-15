@@ -1,0 +1,22 @@
+.NotFound {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+p.NotFound__title {
+  text-transform: uppercase;
+  text-align: center;
+  font-family: Impact, Arial, sans-serif;
+  font-weight: bold;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  -webkit-text-stroke: 3px black;
+  letter-spacing: 1px;
+  color: white;
+}
+
+.NotFound__image-wrapper {
+  margin: 10px 0;
+  text-align: center;
+}
