@@ -34,8 +34,8 @@ class Header extends React.Component<HeaderProps> {
 
           <nav className='Header__tabs'>
             <Tabs className='Header__tabs-wrapper'
-                  fullWidth={true}
-                  value={this.linkValue}>
+                  value={this.linkValue}
+                  variant='fullWidth'>
               <LinkTab icon={<Home/>} value={tabLinks[0]}/>
               <LinkTab icon={<PhotoLibrary/>} value={tabLinks[1]}/>
             </Tabs>
