@@ -10,6 +10,7 @@
 
 .App__paper {
   display: flex;
+  justify-content: center;
   flex-grow: 1;
   overflow: auto;
   max-height: 100%;
