@@ -1,3 +1,8 @@
 .Browser {
   display: flex;
+  flex-direction: column;
+}
+
+.Browser__images {
+  flex-grow: 1;
 }
