@@ -39,10 +39,10 @@ class App extends React.Component<AppProps> {
             <section className={classNames({'App__section': true, 'App__section--small': isSmallScreen})}>
               <Paper className={classNames({'App__paper': true, 'App__paper--small': isSmallScreen})}>
                 <Switch>
-                  <Route path='/' exact={true} component={Home}/>
-                  <Route path='/browser' component={Browser}/>
-                  <Route component={NotFound}/>
-                </Switch>
+                <Route path='/' exact={true} component={Home}/>
+                <Route path='/browser' component={Browser}/>
+                <Route component={NotFound}/>
+              </Switch>
               </Paper>
             </section>
           </div>
