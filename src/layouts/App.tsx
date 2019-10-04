@@ -18,9 +18,6 @@ const gdgTheme = createMuiTheme({
     primary: blue,
     secondary: deepOrange,
   },
-  typography: {
-    useNextVariants: true,
-  },
 });
 
 interface AppProps {

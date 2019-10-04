@@ -22,8 +22,8 @@ class LinkTab extends React.Component<LinkTabProps> {
 
   private navigate = () => {
     const history = this.props.history;
-    history.push(this.props.value);
+    history.push(this.props.value)
   };
 }
 
-export default withRouter<LinkTabProps>(LinkTab);
+export default withRouter(LinkTab);

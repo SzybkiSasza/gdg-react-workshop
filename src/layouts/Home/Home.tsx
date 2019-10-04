@@ -45,4 +45,4 @@ class Home extends React.Component<RouteComponentProps> {
   };
 }
 
-export default withRouter<RouteComponentProps>(Home);
+export default withRouter(Home);
