@@ -1,7 +1,7 @@
-import { Dialog, DialogTitle, Fab } from '@material-ui/core';
+import { Fab } from '@material-ui/core';
 import { Add } from '@material-ui/icons';
 import * as React from 'react';
-import { FunctionComponent, HTMLAttributes, useState } from 'react';
+import { FunctionComponent, HTMLAttributes } from 'react';
 
 import './ImageUpload.css';
 
@@ -11,20 +11,16 @@ interface ImageUploadProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const ImageUpload: FunctionComponent<ImageUploadProps> = () => {
-  const [open, setOpen] = useState(false);
+  let fileInput: HTMLInputElement | null;
 
-  const handleClose = () => setOpen(false);
-  const handleOpen = () =>setOpen(true);
+  const handleOpen = () => fileInput && fileInput.click();
 
   return (
     <>
       <Fab className='ImageUpload' color='primary' onClick={ handleOpen }>
         <Add/>
       </Fab>
-      <Dialog open={ open }
-              onClose={ handleClose }>
-        <DialogTitle>Choose image to upload</DialogTitle>
-      </Dialog>
+      <input accept='image/*' multiple={true} ref={ ref => fileInput = ref } style={ {display: 'none'} } type='file'/>
     </>
   );
 };
