@@ -13,6 +13,7 @@ interface ImageUploadProps extends HTMLAttributes<HTMLDivElement> {
 export const ImageUpload: FunctionComponent<ImageUploadProps> = () => {
   let fileInput: HTMLInputElement | null;
 
+  const handleFiles = (files: FileList | null) => console.log(files);
   const handleOpen = () => fileInput && fileInput.click();
 
   return (
@@ -20,7 +21,8 @@ export const ImageUpload: FunctionComponent<ImageUploadProps> = () => {
       <Fab className='ImageUpload' color='primary' onClick={ handleOpen }>
         <Add/>
       </Fab>
-      <input accept='image/*' multiple={true} ref={ ref => fileInput = ref } style={ {display: 'none'} } type='file'/>
+      <input accept='image/*' multiple={ true } ref={ ref => fileInput = ref }
+             onChange={(event) => handleFiles(event.target.files)} style={ {display: 'none'} } type='file'/>
     </>
   );
 };
