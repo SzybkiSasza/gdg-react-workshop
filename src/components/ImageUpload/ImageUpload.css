@@ -1,13 +1,5 @@
-div.ImageUpload {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-button.ImageUpload__button {
-  margin: 8px 12px;
-}
-
-.ImageUpload__path {
-  margin: 8px 12px;
-  min-width: 30vw;
+.ImageUpload {
+  position: absolute;
+  top: 24px;
+  left: 24px;
 }
