@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import ImageUpload from '../../components/ImageUpload/ImageUpload';
+import { ImageUpload } from '../../components/ImageUpload/ImageUpload';
 
 import './Browser.css';
 
