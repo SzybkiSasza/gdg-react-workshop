@@ -20,7 +20,6 @@ export const ImageUpload: FunctionComponent<ImageUploadProps> = ({ onImagesSaved
     const files = await ImagesService.instance.saveImages(event.target.files);
     onImagesSaved(files);
   };
-
   const handleOpen = () => fileInput && fileInput.click();
 
   return (
