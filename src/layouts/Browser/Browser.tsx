@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { FunctionComponent, HTMLAttributes } from 'react';
 
-import ImageBrowser from '../../components/ImageBrowser/ImageBrowser';
+import { ImageBrowser } from '../../components/ImageBrowser/ImageBrowser';
 import { ImageUpload } from '../../components/ImageUpload/ImageUpload';
 import { StoredImage } from '../../models/image.model';
 import './Browser.css';

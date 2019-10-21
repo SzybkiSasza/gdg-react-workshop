@@ -1,4 +1,4 @@
 export interface StoredImage {
-  data: File;
+  data: Partial<File>;
   image: string;
 }

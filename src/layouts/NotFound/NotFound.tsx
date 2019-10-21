@@ -1,7 +1,7 @@
 import { Typography, withWidth } from '@material-ui/core';
+import { WithWidthProps } from '@material-ui/core/withWidth';
 import * as React from 'react';
 import { FunctionComponent } from 'react';
-import { WithWidthProps } from '@material-ui/core/withWidth';
 
 import droids from './droids.gif';
 import './NotFound.css';

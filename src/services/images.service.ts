@@ -56,7 +56,12 @@ export class ImagesService {
       fileReader.onload = (event) => {
         const result = (event.target && event.target.result) || '';
         return resolve({
-          data: image,
+          data: {
+            lastModified: image.lastModified,
+            name: image.name,
+            size: image.size,
+            type: image.type,
+          },
           image: result as string,
         });
       };

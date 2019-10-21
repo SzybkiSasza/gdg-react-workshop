@@ -1,11 +1,14 @@
 import * as React from 'react';
+import { FunctionComponent, HTMLAttributes } from 'react';
 
-class ImageBrowser extends React.Component<any> {
-  public render(): JSX.Element {
-    return <div className={this.props.className}>
-      HELLO!!!
-    </div>
-  }
+import { StoredImage } from '../../models/image.model';
+
+interface ImageBrowserProps extends HTMLAttributes<HTMLDivElement> {
+  images: StoredImage[];
 }
 
-export default ImageBrowser;
+export const ImageBrowser: FunctionComponent<ImageBrowserProps> = ({ className }) => {
+  return <div className={ className }>
+    HELLO!!!
+  </div>
+};

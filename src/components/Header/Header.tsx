@@ -1,8 +1,8 @@
+import { AppBar, Tabs, Toolbar, Typography } from '@material-ui/core';
+import { Home, PhotoLibrary } from '@material-ui/icons';
 import * as React from 'react';
 import { FunctionComponent, HTMLAttributes, useMemo } from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
-import { AppBar, Tabs, Toolbar, Typography } from '@material-ui/core';
-import { Home, PhotoLibrary } from '@material-ui/icons';
 
 import { LinkTab } from '../LinkTab/LinkTab';
 import './Header.css';

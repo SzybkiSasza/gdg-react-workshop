@@ -1,7 +1,7 @@
-import * as React from 'react';
-import { RouteComponentProps, withRouter } from 'react-router-dom';
-import { FunctionComponent, HTMLAttributes } from 'react';
 import { Button, Typography } from '@material-ui/core';
+import * as React from 'react';
+import { FunctionComponent, HTMLAttributes } from 'react';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
 
 import gdgLogo from './GDG.png';
 import './Home.css';
