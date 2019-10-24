@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { FunctionComponent, HTMLAttributes, useEffect, useState } from 'react';
+import { FunctionComponent, HTMLAttributes, useCallback, useEffect, useState } from 'react';
 
 import { ImageBrowser } from '../../components/ImageBrowser/ImageBrowser';
 import { ImageUpload } from '../../components/ImageUpload/ImageUpload';
@@ -13,17 +13,19 @@ interface BrowserProps extends HTMLAttributes<HTMLDivElement> {
 
 export const Browser: FunctionComponent<BrowserProps> = () => {
   const [images, setImages] = useState<StoredImage[]>([]);
-  const fetchImages = async () => {
+
+  // Fetches new images
+  const fetchImages = useCallback(async () => {
     const storedImages = await ImagesService.instance.loadImages();
     setImages(storedImages);
-  };
+  }, []);
 
-  // Get initial set of images
+  // Get initial set of images - calls async callback inside
   useEffect(() => {
     fetchImages()
-  });
+  }, [fetchImages]);
 
-  const onImagesSaved = (storedImages: StoredImage[]) => setImages(storedImages);
+  const onImagesSaved = useCallback((storedImages: StoredImage[]) => setImages(storedImages), []);
 
   return (
     <div className='Browser'>
