@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { FunctionComponent, HTMLAttributes, SyntheticEvent, useCallback, useState } from 'react';
-import { GridList, GridListTile, GridListTileBar } from '@material-ui/core';
+import { GridList, GridListTile, GridListTileBar, withWidth } from '@material-ui/core';
+import { WithWidth } from '@material-ui/core/withWidth';
 
 import { StoredImage } from '../../models/image.model';
 
-interface ImageBrowserProps extends HTMLAttributes<HTMLDivElement> {
+interface ImageBrowserProps extends HTMLAttributes<HTMLDivElement>, WithWidth {
   images: StoredImage[];
 }
 
@@ -13,7 +14,7 @@ interface TileInfo {
   rows: number;
 }
 
-export const ImageBrowser: FunctionComponent<ImageBrowserProps> = ({className, images}) => {
+export const ImageBrowserComponent: FunctionComponent<ImageBrowserProps> = (({className, images, width}: ImageBrowserProps) => {
   const [imageTiles, setImageTiles] = useState<{ [key: string]: TileInfo }>({
     default: {
       cols: 1,
@@ -66,7 +67,7 @@ export const ImageBrowser: FunctionComponent<ImageBrowserProps> = ({className, i
   }, [imageTiles]);
 
   return <div className={ className }>
-    <GridList cellHeight={ 152 } spacing={ 5 }>
+    <GridList cols={ 4 } cellHeight={ 300 } spacing={ 10 }>
       { images && images.map(image =>
         <GridListTile key={ image.data.name } cols={ getImageTileInfo(image).cols }
                       rows={ getImageTileInfo(image).rows }>
@@ -78,4 +79,7 @@ export const ImageBrowser: FunctionComponent<ImageBrowserProps> = ({className, i
       ) }
     </GridList>
   </div>
-};
+});
+
+export const ImageBrowser =
+  withWidth({})(ImageBrowserComponent);
