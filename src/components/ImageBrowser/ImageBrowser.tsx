@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { FunctionComponent, HTMLAttributes, SyntheticEvent, useCallback, useState } from 'react';
+import { FunctionComponent, HTMLAttributes, SyntheticEvent, useCallback, useMemo, useRef, useState } from 'react';
 import { GridList, GridListTile, GridListTileBar, withWidth } from '@material-ui/core';
+import { Breakpoint } from '@material-ui/core/styles/createBreakpoints';
 import { WithWidth } from '@material-ui/core/withWidth';
 
 import { StoredImage } from '../../models/image.model';
@@ -14,6 +15,15 @@ interface TileInfo {
   rows: number;
 }
 
+// Maps columns to proper grid size
+const colsMap: { [key in Breakpoint]: number } = {
+  'xs': 2,
+  'sm': 4,
+  'md': 6,
+  'lg': 8,
+  'xl': 10,
+};
+
 export const ImageBrowserComponent: FunctionComponent<ImageBrowserProps> = (({className, images, width}: ImageBrowserProps) => {
   const [imageTiles, setImageTiles] = useState<{ [key: string]: TileInfo }>({
     default: {
@@ -21,6 +31,22 @@ export const ImageBrowserComponent: FunctionComponent<ImageBrowserProps> = (({cl
       rows: 1,
     }
   });
+
+  // Get total cols based on width - 8 / 6 / 4 / 2
+  const currentCols = useMemo(() => colsMap[width], [width]);
+
+  // Get column height proportional to columns number
+  const componentRef = useRef<HTMLUListElement>(null);
+  const cellHeight = useMemo(() => {
+    if (componentRef.current) {
+      const listRef = componentRef.current;
+      const listWidth = listRef.offsetWidth;
+
+      return Math.floor(listWidth / currentCols);
+    }
+
+    return 200;
+  }, [componentRef.current, currentCols]);
 
   // Calculates columns and rows for the image
   const updateImageBounds = useCallback((imageData: Partial<File>) => (event: SyntheticEvent<HTMLImageElement>) => {
@@ -67,7 +93,7 @@ export const ImageBrowserComponent: FunctionComponent<ImageBrowserProps> = (({cl
   }, [imageTiles]);
 
   return <div className={ className }>
-    <GridList cols={ 4 } cellHeight={ 300 } spacing={ 10 }>
+    <GridList cols={ currentCols } cellHeight={ cellHeight } spacing={ 10 } ref={ componentRef }>
       { images && images.map(image =>
         <GridListTile key={ image.data.name } cols={ getImageTileInfo(image).cols }
                       rows={ getImageTileInfo(image).rows }>
