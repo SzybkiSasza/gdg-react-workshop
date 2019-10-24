@@ -1,8 +1,8 @@
-import * as React from 'react';
-import { FunctionComponent, HTMLAttributes, SyntheticEvent, useCallback, useMemo, useRef, useState } from 'react';
 import { GridList, GridListTile, GridListTileBar, withWidth } from '@material-ui/core';
 import { Breakpoint } from '@material-ui/core/styles/createBreakpoints';
 import { WithWidth } from '@material-ui/core/withWidth';
+import * as React from 'react';
+import { FunctionComponent, HTMLAttributes, SyntheticEvent, useCallback, useMemo, useRef, useState } from 'react';
 
 import { StoredImage } from '../../models/image.model';
 
