@@ -6,6 +6,8 @@ import { FunctionComponent, HTMLAttributes, SyntheticEvent, useCallback, useMemo
 
 import { StoredImage } from '../../models/image.model';
 
+import './ImageBrowser.css';
+
 interface ImageBrowserProps extends HTMLAttributes<HTMLDivElement>, WithWidth {
   images: StoredImage[];
 }
@@ -17,11 +19,11 @@ interface TileInfo {
 
 // Maps columns to proper grid size
 const colsMap: { [key in Breakpoint]: number } = {
-  'xs': 2,
-  'sm': 4,
-  'md': 6,
-  'lg': 8,
-  'xl': 10,
+  'xs': 1,
+  'sm': 2,
+  'md': 4,
+  'lg': 6,
+  'xl': 8,
 };
 
 export const ImageBrowserComponent: FunctionComponent<ImageBrowserProps> = (({className, images, width}: ImageBrowserProps) => {
@@ -46,7 +48,7 @@ export const ImageBrowserComponent: FunctionComponent<ImageBrowserProps> = (({cl
     }
 
     return 200;
-  }, [componentRef.current, currentCols]);
+  }, [currentCols]);
 
   // Calculates columns and rows for the image
   const updateImageBounds = useCallback((imageData: Partial<File>) => (event: SyntheticEvent<HTMLImageElement>) => {
@@ -58,8 +60,8 @@ export const ImageBrowserComponent: FunctionComponent<ImageBrowserProps> = (({cl
     const imageHeight = imageElt.naturalHeight;
     const ratio = imageWidth / imageHeight;
 
-    console.log(imageData.name, imageWidth, imageHeight, ratio);
-    if (ratio >= 1.2) {
+    // Stretch images that are wide
+    if (ratio >= 1.5) {
       setImageTiles({
         ...imageTiles,
         [imagePropName]: {
@@ -67,24 +69,7 @@ export const ImageBrowserComponent: FunctionComponent<ImageBrowserProps> = (({cl
           rows: 1,
         }
       });
-    } else if (ratio <= 0.8) {
-      setImageTiles({
-        ...imageTiles,
-        [imagePropName]: {
-          cols: 1,
-          rows: Math.ceil(1 / ratio),
-        }
-      });
-    } else {
-      setImageTiles({
-        ...imageTiles,
-        [imagePropName]: {
-          cols: 1,
-          rows: 1,
-        }
-      });
     }
-    // }
   }, [imageTiles]);
 
   const getImageTileInfo = useCallback((image: StoredImage) => {
@@ -92,11 +77,13 @@ export const ImageBrowserComponent: FunctionComponent<ImageBrowserProps> = (({cl
     return imageTiles[imagePropName] || imageTiles.default;
   }, [imageTiles]);
 
-  return <div className={ className }>
-    <GridList cols={ currentCols } cellHeight={ cellHeight } spacing={ 10 } ref={ componentRef }>
+  return (
+    <GridList className={ 'ImageBrowser' }
+              cols={ currentCols }
+              cellHeight={ cellHeight } spacing={ 5 }
+              ref={ componentRef }>
       { images && images.map(image =>
-        <GridListTile key={ image.data.name } cols={ getImageTileInfo(image).cols }
-                      rows={ getImageTileInfo(image).rows }>
+        <GridListTile key={ image.data.name } cols={getImageTileInfo(image).cols} rows={getImageTileInfo(image).rows}>
           <img src={ image.image } alt={ image.data.name } onLoad={ updateImageBounds(image.data) }/>
           <GridListTileBar
             title={ image.data.name }
@@ -104,7 +91,7 @@ export const ImageBrowserComponent: FunctionComponent<ImageBrowserProps> = (({cl
         </GridListTile>
       ) }
     </GridList>
-  </div>
+  );
 });
 
 export const ImageBrowser =

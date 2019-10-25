@@ -2,6 +2,7 @@ import { Fab } from '@material-ui/core';
 import { Add } from '@material-ui/icons';
 import * as React from 'react';
 import { ChangeEvent, FunctionComponent, HTMLAttributes } from 'react';
+import classNames from 'classnames'
 
 import { StoredImage } from '../../models/image.model';
 import { ImagesService } from '../../services/images.service';
@@ -13,7 +14,7 @@ interface ImageUploadProps extends HTMLAttributes<HTMLDivElement> {
   onImagesSaved: (files: StoredImage[]) => void;
 }
 
-export const ImageUpload: FunctionComponent<ImageUploadProps> = ({ onImagesSaved }) => {
+export const ImageUpload: FunctionComponent<ImageUploadProps> = ({ className, onImagesSaved }) => {
   let fileInput: HTMLInputElement | null;
 
   const handleFiles = async (event: ChangeEvent<HTMLInputElement>) => {
@@ -24,7 +25,7 @@ export const ImageUpload: FunctionComponent<ImageUploadProps> = ({ onImagesSaved
 
   return (
     <>
-      <Fab className='ImageUpload' color='primary' onClick={ handleOpen }>
+      <Fab className={classNames([className, 'ImageUpload'])} color='primary' onClick={ handleOpen }>
         <Add/>
       </Fab>
 
