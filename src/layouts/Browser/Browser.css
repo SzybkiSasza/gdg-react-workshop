@@ -1,8 +1,14 @@
 .Browser {
-  display: flex;
-  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
 }
 
 .Browser__images {
   flex-grow: 1;
+}
+
+.Browser__upload.Browser__upload {
+  position: absolute;
 }

@@ -1,29 +1,26 @@
 import * as React from 'react';
+import { FunctionComponent } from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 
 import Tab, { TabProps } from '@material-ui/core/Tab';
 
 import './LinkTab.css';
 
-interface LinkTabProps extends RouteComponentProps, TabProps {}
-
-class LinkTab extends React.Component<LinkTabProps> {
-  public render() {
-    const { staticContext, ...props } = this.props;
-
-    return (
-      <Tab
-        className='NavTab'
-        color='secondary'
-        onClick={this.navigate}
-        {...props}/>
-    )
-  }
-
-  private navigate = () => {
-    const history = this.props.history;
-    history.push(this.props.value);
-  };
+interface LinkTabProps extends RouteComponentProps, TabProps {
 }
 
-export default withRouter<LinkTabProps>(LinkTab);
+export const LinkTabComponent: FunctionComponent<LinkTabProps> = ({staticContext, history, ...props}) => {
+  const navigate = () => {
+    history.push(props.value)
+  };
+
+  return (
+    <Tab
+      className='NavTab'
+      color='secondary'
+      onClick={ navigate }
+      { ...props }/>
+  )
+};
+
+export const LinkTab = withRouter(LinkTabComponent);

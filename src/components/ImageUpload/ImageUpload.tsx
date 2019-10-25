@@ -1,40 +1,40 @@
+import { Fab } from '@material-ui/core';
+import { Add } from '@material-ui/icons';
+import classNames from 'classnames'
 import * as React from 'react';
+import { ChangeEvent, FunctionComponent, HTMLAttributes } from 'react';
 
-import { Button, Input } from '@material-ui/core';
+import { StoredImage } from '../../models/image.model';
+import { ImagesService } from '../../services/images.service';
+import './ImageUpload.css';
 
-class ImageUpload extends React.Component<any> {
-  public render(): JSX.Element {
-    return <div className={this.props.className}>
-      <Input
-        className='ImageUpload__path'
-        id='upload-path'
-        placeholder='PATH HERE'
-        readOnly={true}
-        value=''/>
-      <Button className='Home__button'
-              color='secondary'
-              onClick={this.selectFile}
-              variant='contained'>
-        Browse
-      </Button>
-      <Button className='Home__button'
-              color='secondary'
-              onClick={this.uploadFile}
-              variant='contained'>
-        Upload selected file
-      </Button>
-    </div>
-  }
-
-  private selectFile = (event: React.MouseEvent) => {
-    console.log('Selecting!');
-    console.log(event);
-  };
-
-  private uploadFile = (event: React.MouseEvent) => {
-    console.log('Uploading!');
-    console.log(event);
-  };
+interface ImageUploadProps extends HTMLAttributes<HTMLDivElement> {
+  topPos?: number;
+  leftPos?: number;
+  onImagesSaved: (files: StoredImage[]) => void;
 }
 
-export default ImageUpload;
+export const ImageUpload: FunctionComponent<ImageUploadProps> = ({ className, onImagesSaved }) => {
+  let fileInput: HTMLInputElement | null;
+
+  const handleFiles = async (event: ChangeEvent<HTMLInputElement>) => {
+    const files = await ImagesService.instance.saveImages(event.target.files);
+    onImagesSaved(files);
+  };
+  const handleOpen = () => fileInput && fileInput.click();
+
+  return (
+    <>
+      <Fab className={classNames([className, 'ImageUpload'])} color='primary' onClick={ handleOpen }>
+        <Add/>
+      </Fab>
+
+      <input
+        accept='image/*'
+        multiple={ true }
+        ref={ ref => fileInput = ref }
+        onChange={ handleFiles } style={ {display: 'none'} }
+        type='file'/>
+    </>
+  );
+};

@@ -1,6 +1,7 @@
 .App {
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   height: 100%;
 }
 
@@ -24,6 +25,7 @@
 .App__section {
   display: flex;
   flex-grow: 1;
+  overflow: hidden;
   padding: 50px;
 }
 
