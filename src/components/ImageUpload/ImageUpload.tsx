@@ -1,8 +1,8 @@
 import { Fab } from '@material-ui/core';
 import { Add } from '@material-ui/icons';
+import classNames from 'classnames'
 import * as React from 'react';
 import { ChangeEvent, FunctionComponent, HTMLAttributes } from 'react';
-import classNames from 'classnames'
 
 import { StoredImage } from '../../models/image.model';
 import { ImagesService } from '../../services/images.service';

@@ -1,8 +1,8 @@
 .App {
   display: flex;
   flex-direction: column;
-  height: 100%;
   overflow: hidden;
+  height: 100%;
 }
 
 .App__header {
@@ -25,8 +25,8 @@
 .App__section {
   display: flex;
   flex-grow: 1;
-  padding: 50px;
   overflow: hidden;
+  padding: 50px;
 }
 
 .App__section--small {
