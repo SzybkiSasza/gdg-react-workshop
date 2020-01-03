@@ -27,7 +27,8 @@ We'll use following tools to build our core app:
 These tools will be used to build advanced features:
 - Electron
 - Electron-builder
-- Webpack (React - eject)
+- Foreman
+- Cross-Env
 
 ## Goals
 
