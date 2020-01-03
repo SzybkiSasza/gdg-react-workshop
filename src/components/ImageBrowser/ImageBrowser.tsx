@@ -1,8 +1,8 @@
+import { WithWidth, withWidth } from '@material-ui/core';
+import { Breakpoint } from '@material-ui/core/styles/createBreakpoints';
 import * as React from 'react';
 import { FunctionComponent, HTMLAttributes, SyntheticEvent, useCallback, useMemo, useState } from 'react';
 import StackGrid from 'react-stack-grid';
-import { Breakpoint } from '@material-ui/core/styles/createBreakpoints';
-import { WithWidth, withWidth } from '@material-ui/core';
 
 import { StoredImage } from '../../models/image.model';
 import './ImageBrowser.css';
