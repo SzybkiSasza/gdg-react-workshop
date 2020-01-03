@@ -15,6 +15,6 @@
 .ImageBrowser__image {
   max-width: 100%;
   height: auto;
-  vertical-align: top;
   margin: 10px 0;
+  vertical-align: top;
 }
