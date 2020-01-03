@@ -5,7 +5,7 @@ import * as url from 'url';
 let mainWindow: BrowserWindow | null;
 
 function createWindow() {
-  mainWindow = new BrowserWindow({ width: 800, height: 600 })
+  mainWindow = new BrowserWindow({ width: 1024, height: 768 });
 
   mainWindow.loadURL(
     process.env.ELECTRON_START_URL ||

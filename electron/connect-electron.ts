@@ -26,5 +26,6 @@ const tryConnection = () => {
 tryConnection();
 
 client.on('error', () => {
+  console.log('Retrying...');
   setTimeout(tryConnection, 1000)
 });
