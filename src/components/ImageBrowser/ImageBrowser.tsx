@@ -1,11 +1,10 @@
-import { GridList, GridListTile, GridListTileBar, withWidth } from '@material-ui/core';
-import { Breakpoint } from '@material-ui/core/styles/createBreakpoints';
-import { WithWidth } from '@material-ui/core/withWidth';
 import * as React from 'react';
-import { FunctionComponent, HTMLAttributes, SyntheticEvent, useCallback, useMemo, useRef, useState } from 'react';
+import { FunctionComponent, HTMLAttributes, SyntheticEvent, useCallback, useMemo, useState } from 'react';
+import StackGrid from 'react-stack-grid';
+import { Breakpoint } from '@material-ui/core/styles/createBreakpoints';
+import { WithWidth, withWidth } from '@material-ui/core';
 
 import { StoredImage } from '../../models/image.model';
-
 import './ImageBrowser.css';
 
 interface ImageBrowserProps extends HTMLAttributes<HTMLDivElement>, WithWidth {
@@ -15,18 +14,20 @@ interface ImageBrowserProps extends HTMLAttributes<HTMLDivElement>, WithWidth {
 interface TileInfo {
   cols: number;
   rows: number;
+  width?: number;
+  height?: number;
 }
 
 // Maps columns to proper grid size
-const colsMap: { [key in Breakpoint]: number } = {
-  'xs': 1,
-  'sm': 2,
-  'md': 4,
-  'lg': 6,
-  'xl': 8,
+const colsMap: { [key in Breakpoint]: string } = {
+  'xs': '100%',
+  'sm': '50%',
+  'md': '25%',
+  'lg': '16.6%',
+  'xl': '12.5%',
 };
 
-export const ImageBrowserComponent: FunctionComponent<ImageBrowserProps> = (({className, images, width}: ImageBrowserProps) => {
+export const ImageBrowserComponent: FunctionComponent<ImageBrowserProps> = (({ width, className, images }: ImageBrowserProps) => {
   const [imageTiles, setImageTiles] = useState<{ [key: string]: TileInfo }>({
     default: {
       cols: 1,
@@ -34,63 +35,70 @@ export const ImageBrowserComponent: FunctionComponent<ImageBrowserProps> = (({cl
     }
   });
 
-  // Get total cols based on width - 8 / 6 / 4 / 2
-  const currentCols = useMemo(() => colsMap[width], [width]);
-
-  // Get column height proportional to columns number
-  const componentRef = useRef<HTMLUListElement>(null);
-  const cellHeight = useMemo(() => {
-    if (componentRef.current) {
-      const listRef = componentRef.current;
-      const listWidth = listRef.offsetWidth;
-
-      return Math.floor(listWidth / currentCols);
-    }
-
-    return 200;
-  }, [currentCols]);
-
   // Calculates columns and rows for the image
   const updateImageBounds = useCallback((imageData: Partial<File>) => (event: SyntheticEvent<HTMLImageElement>) => {
     const imagePropName = imageData.name || 'default';
-    // if (!imageTiles[imagePropName]) {
     const imageElt = (event.target as HTMLImageElement);
 
     const imageWidth = imageElt.naturalWidth;
     const imageHeight = imageElt.naturalHeight;
+
+    // Get image ratio
     const ratio = imageWidth / imageHeight;
 
-    // Stretch images that are wide
-    if (ratio >= 1.5) {
-      setImageTiles({
-        ...imageTiles,
-        [imagePropName]: {
-          cols: Math.ceil(ratio),
-          rows: 1,
-        }
-      });
+    let newImageProp: TileInfo = {
+      rows: 1,
+      cols: 1,
+      width: imageWidth,
+      height: imageHeight,
+    };
+
+    if (ratio >= 1) {
+      newImageProp = {
+        ...newImageProp,
+        cols: 1,
+        rows: Math.round(ratio),
+      }
+    } else {
+      newImageProp = {
+        ...newImageProp,
+        cols: Math.round(1 / ratio),
+        rows: 1,
+      }
     }
+
+    setImageTiles({
+      ...imageTiles,
+      [imagePropName]: newImageProp,
+    });
   }, [imageTiles]);
 
-  const getImageTileInfo = useCallback((image: StoredImage) => {
-    const imagePropName = image.data.name || 'default';
-    return imageTiles[imagePropName] || imageTiles.default;
-  }, [imageTiles]);
+  // Get total cols based on width - 8 / 6 / 4 / 2
+  const currentColSize = useMemo(() => colsMap[width], [width]);
 
   return (
-    <GridList className={ 'ImageBrowser' }
-              cols={ currentCols }
-              cellHeight={ cellHeight } spacing={ 5 }
-              ref={ componentRef }>
-      { images && images.map(image =>
-        <GridListTile key={ image.data.name } cols={getImageTileInfo(image).cols} rows={getImageTileInfo(image).rows}>
-          <img src={ image.image } alt={ image.data.name } onLoad={ updateImageBounds(image.data) }/>
-          <GridListTileBar
-            title={ image.data.name }
-          />
-        </GridListTile>
-      ) }
-    </GridList>
+    <StackGrid
+      className={'ImageBrowser__container'}
+      monitorImagesLoaded={ true }
+      columnWidth={ currentColSize }
+      gutterWidth={10}
+      gutterHeight={10}
+      duration={ 300 }>
+      {
+        images && images.map(
+          (image, index) => (
+            <div key={ index }>
+              <img
+                className={ 'ImageBrowser__image' }
+                key={ index }
+                src={ image.image }
+                alt={ image.data.name }
+                onLoad={ updateImageBounds(image.data) }/>
+            </div>
+          )
+        )
+      }
+    </StackGrid>
   );
 });
 
