@@ -10,3 +10,16 @@ body,
   padding: 0;
   width: 100%;
 }
+
+/**
+ * PS Overrrides
+ */
+.ps .ps__rail-y,
+.ps .ps__rail-x {
+  z-index: 3;
+}
+
+.ps .ps__rail-y:hover,
+.ps .ps__rail-x:hover {
+  background-color: rgba(238, 238, 238, 0.4);
+}

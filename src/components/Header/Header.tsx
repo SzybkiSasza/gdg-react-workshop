@@ -7,11 +7,14 @@ import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { LinkTab } from '../LinkTab/LinkTab';
 import './Header.css';
 
-const tabLinks = ['/', '/browser'];
+const tabLinks = [
+  '/',
+  '/browser'
+];
 
 interface HeaderProps extends RouteComponentProps, HTMLAttributes<HTMLDivElement> {}
 
-const HeaderComponent: FunctionComponent<HeaderProps> = ({location}) => {
+const HeaderComponent: FunctionComponent<HeaderProps> = ({ location }) => {
   const linkValue = useMemo(() => {
     const pathName = location.pathname;
 
@@ -20,21 +23,19 @@ const HeaderComponent: FunctionComponent<HeaderProps> = ({location}) => {
     }
 
     return tabLinks[0];
-  }, [
-    location
-  ]);
+  }, [location]);
 
   return (
-    <AppBar position='static'>
-      <Toolbar className='Header'>
-        <Typography className='Header__title' variant='h5' color='inherit'>
+    <AppBar position="static">
+      <Toolbar className="Header">
+        <Typography className="Header__title" variant="h5" color="inherit">
           React Workshop
         </Typography>
 
-        <nav className='Header__tabs'>
-          <Tabs className='Header__tabs-wrapper'
+        <nav className="Header__tabs">
+          <Tabs className="Header__tabs-wrapper"
                 value={ linkValue }
-                variant='fullWidth'>
+                variant="fullWidth">
             <LinkTab icon={ <Home/> } value={ tabLinks[0] }/>
             <LinkTab icon={ <PhotoLibrary/> } value={ tabLinks[1] }/>
           </Tabs>
@@ -42,6 +43,7 @@ const HeaderComponent: FunctionComponent<HeaderProps> = ({location}) => {
       </Toolbar>
     </AppBar>
   );
+
 };
 
 export const Header = withRouter(HeaderComponent);

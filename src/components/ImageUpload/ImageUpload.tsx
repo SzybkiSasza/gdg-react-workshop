@@ -1,6 +1,6 @@
 import { Fab } from '@material-ui/core';
 import { Add } from '@material-ui/icons';
-import classNames from 'classnames'
+import classNames from 'classnames';
 import * as React from 'react';
 import { ChangeEvent, FunctionComponent, HTMLAttributes } from 'react';
 
@@ -18,23 +18,27 @@ export const ImageUpload: FunctionComponent<ImageUploadProps> = ({ className, on
   let fileInput: HTMLInputElement | null;
 
   const handleFiles = async (event: ChangeEvent<HTMLInputElement>) => {
-    const files = await ImagesService.instance.saveImages(event.target.files);
-    onImagesSaved(files);
-  };
-  const handleOpen = () => fileInput && fileInput.click();
+      const files = await ImagesService.instance.saveImages(event.target.files);
+      onImagesSaved(files);
+    },
+    handleOpen = () => fileInput && fileInput.click();
 
   return (
     <>
-      <Fab className={classNames([className, 'ImageUpload'])} color='primary' onClick={ handleOpen }>
+      <Fab className={ classNames([
+        className,
+        'ImageUpload'
+      ]) } color="primary" onClick={ handleOpen }>
         <Add/>
       </Fab>
 
       <input
-        accept='image/*'
+        accept="image/*"
         multiple={ true }
-        ref={ ref => fileInput = ref }
-        onChange={ handleFiles } style={ {display: 'none'} }
-        type='file'/>
+        ref={ (ref) => fileInput = ref }
+        onChange={ handleFiles } style={ { 'display': 'none' } }
+        type="file"/>
     </>
   );
+
 };
