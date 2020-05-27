@@ -1,13 +1,14 @@
 import { WithWidth, withWidth } from '@material-ui/core';
 import { Breakpoint } from '@material-ui/core/styles/createBreakpoints';
 import * as React from 'react';
-import { FunctionComponent, HTMLAttributes, SyntheticEvent, useCallback, useMemo, useState } from 'react';
+import { FunctionComponent, SyntheticEvent, useCallback, useMemo, useState } from 'react';
 import StackGrid from 'react-stack-grid';
+import PerfectScrollbar from 'react-perfect-scrollbar';
 
 import { StoredImage } from '../../models/image.model';
 import './ImageBrowser.css';
 
-interface ImageBrowserProps extends HTMLAttributes<HTMLDivElement>, WithWidth {
+interface ImageBrowserProps extends WithWidth {
   images: StoredImage[];
 }
 
@@ -27,7 +28,7 @@ const colsMap: { [key in Breakpoint]: string } = {
   'xl': '12.5%'
 };
 
-export const ImageBrowserComponent: FunctionComponent<ImageBrowserProps> = ({ width, className, images }: ImageBrowserProps) => {
+export const ImageBrowserComponent: FunctionComponent<ImageBrowserProps> = ({ width, images }: ImageBrowserProps) => {
   const [
       imageTiles,
       setImageTiles
@@ -90,6 +91,7 @@ export const ImageBrowserComponent: FunctionComponent<ImageBrowserProps> = ({ wi
     );
 
   return (
+    <PerfectScrollbar>
     <StackGrid
       className={ 'ImageBrowser__container' }
       monitorImagesLoaded={ true }
@@ -108,6 +110,7 @@ export const ImageBrowserComponent: FunctionComponent<ImageBrowserProps> = ({ wi
         </div>)
       }
     </StackGrid>
+    </PerfectScrollbar>
   );
 
 };

@@ -29,7 +29,8 @@ export const Browser: FunctionComponent<BrowserProps> = () => {
   }, [fetchImages]);
 
   const onImagesSaved = useCallback((storedImages: StoredImage[]) =>
-    setImages(storedImages), []);
+      setImages(storedImages),
+    []);
 
   return (
     <div className="Browser">
@@ -37,4 +38,5 @@ export const Browser: FunctionComponent<BrowserProps> = () => {
       <ImageBrowser images={ images }/>
     </div>
   );
+
 };

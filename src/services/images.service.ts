@@ -8,7 +8,6 @@ export class ImagesService {
       'name': 'GDG React Workshop',
       'storeName': 'gdg'
     });
-
   }
 
   private static instanceVal: ImagesService;
@@ -22,7 +21,6 @@ export class ImagesService {
 
     this.instanceVal = new ImagesService();
     return this.instanceVal;
-
   }
 
   public loadImages(): Promise<StoredImage[]> {
@@ -62,7 +60,7 @@ export class ImagesService {
       const fileReader = new FileReader();
 
       fileReader.onload = (event) => {
-        const result = event.target && event.target.result || '';
+        const result = (event.target && event.target.result) || '';
         return resolve({
           'data': {
             'lastModified': image.lastModified,

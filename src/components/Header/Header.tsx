@@ -12,22 +12,18 @@ const tabLinks = [
   '/browser'
 ];
 
-interface HeaderProps extends RouteComponentProps, HTMLAttributes<HTMLDivElement> {
-}
+interface HeaderProps extends RouteComponentProps, HTMLAttributes<HTMLDivElement> {}
 
 const HeaderComponent: FunctionComponent<HeaderProps> = ({ location }) => {
-  const linkValue = useMemo(
-    () => {
-      const pathName = location.pathname;
+  const linkValue = useMemo(() => {
+    const pathName = location.pathname;
 
-      if (tabLinks.indexOf(pathName) !== -1) {
-        return pathName;
-      }
+    if (tabLinks.indexOf(pathName) !== -1) {
+      return pathName;
+    }
 
-      return tabLinks[0];
-    },
-    [location]
-  );
+    return tabLinks[0];
+  }, [location]);
 
   return (
     <AppBar position="static">

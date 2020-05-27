@@ -21,7 +21,7 @@ const NotFoundLayout: FunctionComponent<WithWidthProps> = ({ width }) => {
         <img src={ droids } alt="Obi Wan"/>
       </div>
       <Typography className="NotFound__title" paragraph={ true } variant={ isSmallScreen ? 'h4' : 'h2' }>
-        You're looking for
+        You&apos;re looking for
       </Typography>
     </div>
   );
