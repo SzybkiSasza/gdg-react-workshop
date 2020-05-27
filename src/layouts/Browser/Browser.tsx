@@ -8,29 +8,33 @@ import { ImagesService } from '../../services/images.service';
 
 import './Browser.css';
 
-interface BrowserProps extends HTMLAttributes<HTMLDivElement> {
-};
+type BrowserProps = HTMLAttributes<HTMLDivElement>;
 
 export const Browser: FunctionComponent<BrowserProps> = () => {
-  const [images, setImages] = useState<StoredImage[]>([]);
+  const [
+      images,
+      setImages
+    ] = useState<StoredImage[]>([]),
 
-  // Fetches new images
-  const fetchImages = useCallback(async () => {
-    const storedImages = await ImagesService.instance.loadImages();
-    setImages(storedImages);
-  }, []);
+    // Fetches new images
+    fetchImages = useCallback(async () => {
+      const storedImages = await ImagesService.instance.loadImages();
+      setImages(storedImages);
+
+    }, []);
 
   // Get initial set of images - calls async callback inside
   useEffect(() => {
-    fetchImages()
+    fetchImages();
   }, [fetchImages]);
 
-  const onImagesSaved = useCallback((storedImages: StoredImage[]) => setImages(storedImages), []);
+  const onImagesSaved = useCallback((storedImages: StoredImage[]) =>
+    setImages(storedImages), []);
 
   return (
-    <div className='Browser'>
-      <ImageUpload className='Browser__upload' onImagesSaved={ onImagesSaved }/>
+    <div className="Browser">
+      <ImageUpload className="Browser__upload" onImagesSaved={ onImagesSaved }/>
       <ImageBrowser images={ images }/>
     </div>
   );
-}
+};
