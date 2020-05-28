@@ -1,2 +1,3 @@
-react: npm run react-start
-electron: npm run electron-start
+react: npm run start-react
+start-electron: npm run start-electron
+watch-electron: npm run watch-electron
