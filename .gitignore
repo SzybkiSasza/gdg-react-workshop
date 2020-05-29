@@ -25,3 +25,4 @@ yarn-error.log*
 
 # Electron
 src/electron/main.js
+dist
