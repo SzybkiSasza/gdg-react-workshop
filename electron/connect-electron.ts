@@ -1,7 +1,8 @@
 import * as net from 'net';
 import * as childProcess from 'child_process';
 
-const port: number = process.env.PORT ? (Number.parseInt(process.env.PORT, 10) - 100) : 3000;
+// Adjust port so that Electron hits React
+const port: number = process.env.PORT ? Number.parseInt(process.env.PORT, 10) - 100 : 3000;
 
 process.env.ELECTRON_START_URL = `http://localhost:${port}`;
 
@@ -17,7 +18,10 @@ const tryConnection = () => {
       if (!startedElectron) {
         startedElectron = true;
         console.log('starting electron');
-        childProcess.exec('npm run electron')
+
+        childProcess.exec('nodemon --watch "build"  --exec "electron ." --inspect=5858', {
+          windowsHide: true
+        });
       }
     }
   )
@@ -25,7 +29,7 @@ const tryConnection = () => {
 
 tryConnection();
 
-client.on('error', () => {
-  console.log('Retrying...');
-  setTimeout(tryConnection, 1000)
+client.on('error', (err) => {
+  console.log('Retrying...', err);
+  setTimeout(tryConnection, 1000);
 });
