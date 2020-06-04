@@ -24,5 +24,5 @@ yarn-debug.log*
 yarn-error.log*
 
 # Electron
-src/electron/main.js
-dist
+src/electron/*.js
+dist/*

@@ -1,16 +1,8 @@
 import { app, BrowserWindow, Menu, screen } from 'electron';
-import * as reload from 'electron-reloader';
 import * as path from 'path';
 import * as url from 'url';
 
 import menuTemplate from './menu';
-
-// Prepare live reload
-try {
-  reload(module);
-} catch (err) {
-  console.log('Error encountered during hot reload!', err);
-}
 
 let mainWindow: BrowserWindow | null;
 
@@ -18,7 +10,7 @@ function createWindow() {
   const displays = screen.getAllDisplays()
   const externalDisplay = displays.find((display) => {
     return display.bounds.x !== 0 || display.bounds.y !== 0
-  })
+  });
 
   let mainWindow;
   if (externalDisplay) {

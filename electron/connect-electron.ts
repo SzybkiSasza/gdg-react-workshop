@@ -19,12 +19,9 @@ const tryConnection = () => {
         startedElectron = true;
         console.log('starting electron');
 
-        childProcess.exec('electron . --inspect=5858', {
+        childProcess.exec('nodemon --watch "build"  --exec "electron ." --inspect=5858', {
           windowsHide: true
         });
-
-        // Leave the process running for Electron hot reload
-        while(true) {} // eslint-disable-line no-constant-condition, no-empty
       }
     }
   )
