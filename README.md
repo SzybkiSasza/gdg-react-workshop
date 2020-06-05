@@ -93,22 +93,22 @@ the build script in order to have it working for Mac/*Nix systems.
 ## Resources
 
 1. React
-    - https://reactjs.org/
-    - https://github.com/facebook/react/
-    - https://github.com/facebook/create-react-app
-    - https://medium.freecodecamp.org/learning-react-roadmap-from-scratch-to-advanced-bff7735531b6
-    - https://hackernoon.com/code-reuse-using-higher-order-hoc-and-stateless-functional-components-in-react-and-react-native-6eeb503c665
+    - [React docs](https://reactjs.org/)
+    - [React GH repo](https://github.com/facebook/react/)
+    - [CRA repo](https://github.com/facebook/create-react-app)
+    - [Learning React roadmap](https://medium.freecodecamp.org/learning-react-roadmap-from-scratch-to-advanced-bff7735531b6)
+    - [Higher Order Components](https://hackernoon.com/code-reuse-using-higher-order-hoc-and-stateless-functional-components-in-react-and-react-native-6eeb503c665)
 2. Jest
-    - https://jestjs.io/
-    - https://github.com/facebook/jest
-    - https://medium.com/selleo/testing-react-components-best-practices-2f77ac302d12
+    - [Jest docs](https://jestjs.io/)
+    - [Jest repo](https://github.com/facebook/jest)
+    - [Testing React Best Practices](https://medium.com/selleo/testing-react-components-best-practices-2f77ac302d12)
 
 3. Material UI
-    - https://material-ui.com/
+    - [Docs](https://material-ui.com/)
 4. Electron
-    - https://electronjs.org/
-    - https://hackernoon.com/the-basics-of-building-a-cross-platform-desktop-application-with-electron-814306c22d76
-    - https://jlord.us/essential-electron/
-    - https://hackernoon.com/electron-the-bad-parts-2b710c491547
-    - https://medium.freecodecamp.org/building-an-electron-application-with-create-react-app-97945861647c
+    - [Docs](https://electronjs.org/)
+    - [Basics of building cross-platform app](https://hackernoon.com/the-basics-of-building-a-cross-platform-desktop-application-with-electron-814306c22d76)
+    - [Essential Electron](https://jlord.us/essential-electron/)
+    - [Electron - the bad parts](https://hackernoon.com/electron-the-bad-parts-2b710c491547)
+    - [Building Electron App with CRA](https://medium.freecodecamp.org/building-an-electron-application-with-create-react-app-97945861647c)
 
