@@ -1,6 +1,6 @@
 # GDG-React-Workshop
 
-React workshop for GDG DevFest Warsaw 2018 👩‍💻👨‍💻🤖💻
+React + Electron + Typescript workshop for GDG DevFest Warsaw 👩‍💻👨‍💻🤖💻
 
 ## Getting started
 
