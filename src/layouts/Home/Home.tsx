@@ -18,7 +18,7 @@ export const HomeLayout: FunctionComponent<HomeProps> = ({ history }) => {
     <div className="Home">
       <img className="Home__logo" src={ gdgLogo } alt="GDG Logo"/>
       <Typography className="Home__title" paragraph={ true } variant="h5">
-        Welcome to GDG DevFest Warsaw 2018 React Workshop!
+        Welcome to GDG DevFest Warsaw React Workshop!
       </Typography>
       <Typography className="Home__section" paragraph={ true } variant="body1">
         This is a working demo created during workshop and finished afterwards

@@ -23,7 +23,7 @@ export class ImagesService {
     return this.instanceVal;
   }
 
-  public loadImages(): Promise<StoredImage[]> {
+  public loadImages(): Promise<StoredImage[] | null> {
     return localForage.getItem<StoredImage[]>(this.LS_ITEMS_KEY);
   }
 

@@ -19,7 +19,7 @@ export const Browser: FunctionComponent<BrowserProps> = () => {
     // Fetches new images
     fetchImages = useCallback(async () => {
       const storedImages = await ImagesService.instance.loadImages();
-      setImages(storedImages);
+      setImages(storedImages || []);
 
     }, []);
 
