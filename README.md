@@ -120,3 +120,11 @@ the build script in order to have it working for Mac/*Nix systems.
     - [React typescript & Electron — the one minute setup](https://alanbouteiller.medium.com/react-typescript-electron-the-one-minute-setup-6d306fccd128)
     - [Electron React hot reload & multi launch script — the one minute setup](https://alanbouteiller.medium.com/electron-react-hot-reload-multi-launch-script-the-one-minute-setup-392847380b26)
     - React Tutorial - Build a Weather App from Scratch - [Part 1](https://instil.co/blog/react-typescript-weather-app-tutorial-part-1/). [Part 2](https://instil.co/blog/react-typescript-weather-app-tutorial-part-2/) 
+
+6. Yarn
+    - [Yarn docs](https://yarnpkg.com/)
+    - [How to upgrade a yarn package to the latest version](https://jsramblings.com/how-to-upgrade-a-yarn-package-to-the-latest-version/)
+
+7. Dependabot:
+    - [Dependabot docs](https://dependabot.com/)
+    - [Using Dependabot with Yarn 2](https://blog.alphasmanifesto.com/2021/11/07/yarn-2-dependabot/)
