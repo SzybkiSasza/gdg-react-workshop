@@ -10,7 +10,7 @@
         "lint": "eslint ./src --ext \".js,.jsx,.ts,.tsx\" && stylelint \"./src/**/*.css\"",
         "lint:fix": "eslint ./src --ext \".js,.jsx,.ts,.tsx\" --fix && stylelint \"./src/**/*.css\" --fix",
         "start": "nf start -p 3000",
-        "test": "react-scripts test",
+        "test": "react-scripts test --passWithNoTests",
         "build-electron": "tsc --project electron/tsconfig.json",
         "start-electron": "ts-node --skip-project electron/connect-electron.ts",
         "watch-electron": "tsc --watch --project electron/tsconfig.json",
