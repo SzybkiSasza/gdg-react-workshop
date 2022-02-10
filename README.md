@@ -94,10 +94,13 @@ the build script in order to have it working for Mac/*Nix systems.
 
 1. React
     - [React docs](https://reactjs.org/)
+      - [Components and Props](https://reactjs.org/docs/components-and-props.html)
+      - [Typescript](https://reactjs.org/docs/static-type-checking.html#typescript)
     - [React GH repo](https://github.com/facebook/react/)
     - [CRA repo](https://github.com/facebook/create-react-app)
     - [Learning React roadmap](https://medium.freecodecamp.org/learning-react-roadmap-from-scratch-to-advanced-bff7735531b6)
     - [Higher Order Components](https://hackernoon.com/code-reuse-using-higher-order-hoc-and-stateless-functional-components-in-react-and-react-native-6eeb503c665)
+
 2. Jest
     - [Jest docs](https://jestjs.io/)
     - [Jest repo](https://github.com/facebook/jest)
@@ -105,6 +108,7 @@ the build script in order to have it working for Mac/*Nix systems.
 
 3. Material UI
     - [Docs](https://material-ui.com/)
+
 4. Electron
     - [Docs](https://electronjs.org/)
     - [Basics of building cross-platform app](https://hackernoon.com/the-basics-of-building-a-cross-platform-desktop-application-with-electron-814306c22d76)
@@ -112,3 +116,7 @@ the build script in order to have it working for Mac/*Nix systems.
     - [Electron - the bad parts](https://hackernoon.com/electron-the-bad-parts-2b710c491547)
     - [Building Electron App with CRA](https://medium.freecodecamp.org/building-an-electron-application-with-create-react-app-97945861647c)
 
+5. Other tutorial
+    - [React typescript & Electron — the one minute setup](https://alanbouteiller.medium.com/react-typescript-electron-the-one-minute-setup-6d306fccd128)
+    - [Electron React hot reload & multi launch script — the one minute setup](https://alanbouteiller.medium.com/electron-react-hot-reload-multi-launch-script-the-one-minute-setup-392847380b26)
+    - React Tutorial - Build a Weather App from Scratch - [Part 1](https://instil.co/blog/react-typescript-weather-app-tutorial-part-1/). [Part 2](https://instil.co/blog/react-typescript-weather-app-tutorial-part-2/) 
