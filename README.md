@@ -124,6 +124,7 @@ the build script in order to have it working for Mac/*Nix systems.
 6. Yarn
     - [Yarn docs](https://yarnpkg.com/)
     - [How to upgrade a yarn package to the latest version](https://jsramblings.com/how-to-upgrade-a-yarn-package-to-the-latest-version/)
+    - [Yarn package conflict resolution](https://classic.yarnpkg.com/en/docs/selective-version-resolutions/)
 
 7. Dependabot:
     - [Dependabot docs](https://dependabot.com/)

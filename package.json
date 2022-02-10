@@ -15,7 +15,9 @@
         "start-electron": "ts-node --skip-project electron/connect-electron.ts",
         "watch-electron": "tsc --watch --project electron/tsconfig.json",
         "start-react": "cross-env BROWSER=none react-scripts start",
-        "dist": "npm run build && npm run build-electron && electron-builder build -c.extraMetadata.main=build/electron/main.js"
+        "dist": "npm run build && npm run build-electron && electron-builder build -c.extraMetadata.main=build/electron/main.js",
+        "clean": "rm -rf build",
+        "nuke": "rm -rf build && rm -rf node_modules && rm -rf yarn.lock && rm -rf package-lock.json && rm -rf .cache && rm -rf .yarn-integrity && rm -rf .yarn-metadata"
     },
     "dependencies": {
         "@material-ui/core": "^4.11.0",
@@ -52,6 +54,9 @@
         "stylelint-order": "^4.1.0",
         "ts-node": "^9.0.0",
         "typescript": "^4.0.2"
+    },
+    "resolutions": {
+        "@types/react": "^16.9.48"
     },
     "browserslist": [
         ">0.2%",
